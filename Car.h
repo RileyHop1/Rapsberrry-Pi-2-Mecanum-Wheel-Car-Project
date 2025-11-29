@@ -1,57 +1,96 @@
 #ifndef CAR_CONTROLLER
 #define CAR_CONTROLLER
 
+#include "Motor.h"
 
-
+/**
+ * @class CarController
+ * @brief A singleton class that manages and controls the car's motors.
+ *
+ * The CarController provides high-level movement commands (forward, backward,
+ * turning, stopping) by coordinating four Motor instances representing each wheel.
+ * It is implemented as a singleton to ensure only one controller instance exists.
+ */
 class CarController {
 public:
-
+    /**
+     * @brief Get the singleton instance of CarController.
+     * 
+     * If no instance exists yet, one will be created. This ensures
+     * centralized control of the car's motors.
+     * 
+     * @return Pointer to the CarController singleton instance.
+     */
     static CarController* Instance();
 
+    /**
+     * @brief Move the car forward at the given speed.
+     * 
+     * @param theSpeed Speed value to set for all motors (positive float).
+     */
     static void moveForward(const float theSpeed);
+
+    /**
+     * @brief Move the car backward at the given speed.
+     * 
+     * @param theSpeed Speed value to set for all motors (positive float).
+     */
     static void moveBackward(const float theSpeed);
+
+    /**
+     * Turn the car left.
+     * 
+     * The left-side motors are stopped, while the right-side motors
+     * are set to the given speed to pivot the car left.
+     * 
+     * @param theSpeed Speed value for turning (positive float).
+     */
     static void turnLeft(const float theSpeed);
+
+    /**
+     * Turn the car right.
+     * 
+     * The right-side motors are stopped, while the left-side motors
+     * are set to the given speed to pivot the car right.
+     * 
+     * @param theSpeed Speed value for turning (positive float).
+     */
     static void turnRight(const float theSpeed);
 
+    /**
+     * Stop all motors, bringing the car to a halt.
+     */
     static void stop();
 
+    /**
+     * Destructor for CarController.
+     *
+     * Defaulted since no special cleanup is required.
+     */
+    ~CarController() = default;
 
-
-    ~CarController();
 private:
+    /**
+     *  Private constructor to enforce singleton pattern.
+     *
+     * Prevents direct instantiation of CarController outside of Instance().
+     */
+    CarController() = default;
 
-    
-    //Implementing singleton
-    CarController();
+    // Singleton instance pointer.
+    static CarController* myInstance;
 
-    static CarController* myInstance = nullptr;
-
-    
+    // Motor controlling the back-left wheel.
     static Motor myMotorBackLeft;
+
+    // Motor controlling the back-right wheel.
     static Motor myMotorBackRight;
+
+    // Motor controlling the front-left wheel.
     static Motor myMotorFrontLeft;
+
+    // Motor controlling the front-right wheel.
     static Motor myMotorFrontRight;
-
-
-
-
-
-
-
-
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 #endif

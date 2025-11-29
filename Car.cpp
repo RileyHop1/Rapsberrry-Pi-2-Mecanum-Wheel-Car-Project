@@ -1,4 +1,13 @@
 #include "Car.h"
+
+CarController* CarController::myInstance = nullptr;
+
+Motor CarController::myMotorBackLeft(1);
+Motor CarController::myMotorBackRight(2);
+Motor CarController::myMotorFrontLeft(3);
+Motor CarController::myMotorFrontRight(4);
+
+
 CarController* CarController::Instance() {
     if (myInstance == nullptr) {
         myInstance = new CarController;
