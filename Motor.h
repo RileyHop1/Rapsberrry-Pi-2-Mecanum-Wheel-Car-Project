@@ -13,8 +13,8 @@ enum class Direction{
 class Motor {
 public:
 
-    motor(const int theId);
-    ~motor();
+    Motor(const int theId);
+    ~Motor();
 
     void stop();
 

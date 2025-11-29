@@ -7,29 +7,30 @@ Motor::Motor(const int theId) : myId(theId) {
 
 }
 
-Motor::setSpeed(const float theSpeed) {
-    this.myCurrentSpeed = theSpeed;
+void Motor::setSpeed(const float theSpeed) {
+    this->myCurrentSpeed = theSpeed;
 }
 
 
-Motor::setDriection(const Direction theDirection) {
-    this.myDirection = theDirection;
+void Motor::setDriection(const Direction theDirection) {
+    this->myDirection = theDirection;
 }
 
 
-Motor::stop() {
-    this.theSpeed = 0;
+void Motor::stop() {
+    this->myCurrentSpeed = 0;
 }
 
 
-Motor::getSpeed() {
-    return this.myCurrentSpeed;
+float Motor::getSpeed() {
+    return this->myCurrentSpeed;
 }
 
-Motor::getDirection() {
-    return this.myDirection
+Direction Motor::getDirection() {
+    return this->myDirection;
 
 }
- Motor::getId() {
-    return this.myId;
+
+int Motor::getId() {
+    return this->myId;
  }
