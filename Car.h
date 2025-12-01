@@ -3,9 +3,23 @@
 
 #include "Motor.h"
 
+
+
+/**
+ * This is a point struct it holds
+ * A xPos and yPos.
+ */
+struct Point {
+    float xPos;
+    float yPos;
+
+    Point(const float theXpos, const float theYpos): 
+        xPos(theXpos), yPos(theYpos) {}
+};
+
 /**
  * @class CarController
- * @brief A singleton class that manages and controls the car's motors.
+ * A singleton class that manages and controls the car's motors.
  *
  * The CarController provides high-level movement commands (forward, backward,
  * turning, stopping) by coordinating four Motor instances representing each wheel.
@@ -14,7 +28,7 @@
 class CarController {
 public:
     /**
-     * @brief Get the singleton instance of CarController.
+     * Get the singleton instance of CarController.
      * 
      * If no instance exists yet, one will be created. This ensures
      * centralized control of the car's motors.
@@ -24,14 +38,14 @@ public:
     static CarController* Instance();
 
     /**
-     * @brief Move the car forward at the given speed.
+     * Move the car forward at the given speed.
      * 
      * @param theSpeed Speed value to set for all motors (positive float).
      */
     static void moveForward(const float theSpeed);
 
     /**
-     * @brief Move the car backward at the given speed.
+     * Move the car backward at the given speed.
      * 
      * @param theSpeed Speed value to set for all motors (positive float).
      */
@@ -63,11 +77,39 @@ public:
     static void stop();
 
     /**
+     * Get the Xpos object
+     * 
+     * @return float 
+     */
+    static float getXpos();
+    /**
+     * Get the Ypos object
+     * 
+     * @return float 
+     */
+    static float getYpos();
+
+    /**
+     * Set the Ypos object
+     * 
+     * @param theY 
+     */
+    static void setYpos(const float theY);
+
+    /**
+     * Set the Xpost object
+     * 
+     * @param theX 
+     */
+    static void setXpos(const float theX);
+
+
+    /**
      * Destructor for CarController.
      *
      * Defaulted since no special cleanup is required.
      */
-    ~CarController() = default;
+    ~CarController();
 
 private:
     /**
@@ -75,7 +117,7 @@ private:
      *
      * Prevents direct instantiation of CarController outside of Instance().
      */
-    CarController() = default;
+    CarController();
 
     // Singleton instance pointer.
     static CarController* myInstance;
@@ -91,6 +133,8 @@ private:
 
     // Motor controlling the front-right wheel.
     static Motor myMotorFrontRight;
+
+    static Point myPos;
 };
 
 #endif

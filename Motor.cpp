@@ -12,7 +12,7 @@ void Motor::setSpeed(const float theSpeed) {
 }
 
 
-void Motor::setDriection(const Direction theDirection) {
+void Motor::setDirection(const Direction theDirection) {
     this->myDirection = theDirection;
 }
 
