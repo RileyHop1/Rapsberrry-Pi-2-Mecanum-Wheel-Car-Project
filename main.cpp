@@ -1,5 +1,6 @@
 #include "Car.h"
 #include <iostream>
+#include "Car_Test.h"
 
 
 
@@ -7,7 +8,8 @@
 
 int main() {
 
-    std::cout << "It ran\n";
+    runCarTests();
+    
 
     return 0;
 }

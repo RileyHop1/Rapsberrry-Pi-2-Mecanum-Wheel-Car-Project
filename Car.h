@@ -2,7 +2,7 @@
 #define CAR_CONTROLLER
 
 #include "Motor.h"
-
+#include <iostream>
 
 
 /**
@@ -42,14 +42,14 @@ public:
      * 
      * @param theSpeed Speed value to set for all motors (positive float).
      */
-    static void moveForward(const float theSpeed);
+    void moveForward(const float theSpeed);
 
     /**
      * Move the car backward at the given speed.
      * 
      * @param theSpeed Speed value to set for all motors (positive float).
      */
-    static void moveBackward(const float theSpeed);
+    void moveBackward(const float theSpeed);
 
     /**
      * Turn the car left.
@@ -59,7 +59,7 @@ public:
      * 
      * @param theSpeed Speed value for turning (positive float).
      */
-    static void turnLeft(const float theSpeed);
+    void turnLeft(const float theSpeed);
 
     /**
      * Turn the car right.
@@ -69,39 +69,52 @@ public:
      * 
      * @param theSpeed Speed value for turning (positive float).
      */
-    static void turnRight(const float theSpeed);
+    void turnRight(const float theSpeed);
 
     /**
      * Stop all motors, bringing the car to a halt.
      */
-    static void stop();
+    void stop();
 
     /**
      * Get the Xpos object
      * 
      * @return float 
      */
-    static float getXpos();
+    float getXpos();
     /**
      * Get the Ypos object
      * 
      * @return float 
      */
-    static float getYpos();
+    float getYpos();
 
     /**
      * Set the Ypos object
      * 
      * @param theY 
      */
-    static void setYpos(const float theY);
+    void setYpos(const float theY);
 
     /**
      * Set the Xpost object
      * 
      * @param theX 
      */
-    static void setXpos(const float theX);
+    void setXpos(const float theX);
+
+    /**
+     * Updates the robot
+     * based on speeds of motors.
+     * 
+     */
+    void update();
+
+    Direction getDirection();
+
+    void printDriection();
+
+    void reset();
 
 
     /**
@@ -134,7 +147,11 @@ private:
     // Motor controlling the front-right wheel.
     static Motor myMotorFrontRight;
 
+    // Position of the car.
     static Point myPos;
+
+    //Easy Check to see if the car is turning
+    static bool myTurning;
 };
 
 #endif
