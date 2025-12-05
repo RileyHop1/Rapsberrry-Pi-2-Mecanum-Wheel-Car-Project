@@ -27,6 +27,8 @@ This project implements a complete C++ software driver and simulator for a Raspb
 ## Reflection 
 
 ### Riley Hopper:
-I don't really think this project was really that challenging, most of the things that I did, I had done before within C++ and other promgramming languages. The part that was teh most difficult was the direction code, I orignally put all the code for the cars position and rotation within the car class, (We later moved it over to the simulator to meet the project requirements) making the rotation code took me a little bit to workout, I had to move to scratch paper and breakdown how I wanted the logic to flow. I also had to make a few helper functions to help it work.
+I don't really think this project was that challenging; most of the things that I did, I had done before within C++ and other programming languages. The part that was the most difficult was the direction code, I orignally put all the code for the cars position and rotation within the car class, (We later moved it over to the simulator to meet the project requirements) making the rotation code took me a little bit to workout, I had to move to scratch paper and breakdown how I wanted the logic to flow. I also had to make a few helper functions to help it work.
 
-I didn't really learn anything new about software design or C++ from this project, I had already taken TCS 360 before hand and within that class I wrote a 2D dungeon crawler in C++ using the SDL3 library, so I have already have some experience working on software project and C++. All the things we did for this project in C++ kind of just fall under the scope of things I have aready done.
+I didn't really learn anything new about software design or C++ from this project. I had already taken TCS 360 beforehand, and within that class, I wrote a 2D dungeon crawler in C++ using the SDL3 library, so I already have some experience working on software projects and 
+C++. All the things we did for this project in C++ kind of just fall under the scope of things I have already done.
+
