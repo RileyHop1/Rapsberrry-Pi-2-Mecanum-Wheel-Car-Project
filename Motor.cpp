@@ -1,10 +1,19 @@
+/*
+Author: Erik Babonis and Rylee Hopper
+Project 2 
+Implements the low-level motor abstraction used by the car controller.
+*/
+
 #include "Motor.h"
 
 
 
-Motor::Motor(const int theId) : myId(theId) {
-    //We don't need anything here.
 
+
+Motor::Motor(const int theId, const Direction theDir,
+    const int theSpeed) : myId(theId), myDirection(theDir), myCurrentSpeed(theSpeed) {
+    
+    //We don't need anything here.
 }
 
 void Motor::setSpeed(const float theSpeed) {
@@ -12,7 +21,7 @@ void Motor::setSpeed(const float theSpeed) {
 }
 
 
-void Motor::setDriection(const Direction theDirection) {
+void Motor::setDirection(const Direction theDirection) {
     this->myDirection = theDirection;
 }
 
@@ -33,4 +42,15 @@ Direction Motor::getDirection() {
 
 int Motor::getId() {
     return this->myId;
- }
+}
+
+
+void Motor::turnRight() {
+    myDirection = static_cast<Direction>((static_cast<int>(myDirection) + 1) % 4);
+}
+
+void Motor::turnLeft() {
+    myDirection = static_cast<Direction>((static_cast<int>(myDirection) + 3) % 4);
+}
+
+

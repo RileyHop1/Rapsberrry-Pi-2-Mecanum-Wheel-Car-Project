@@ -1,11 +1,32 @@
+/*
+Author: Erik Babonis and Rylee Hopper
+Project 2 
+Defines the CarController singleton that manages motors, movement logic, and sensors.
+*/
+
 #ifndef CAR_CONTROLLER
 #define CAR_CONTROLLER
 
 #include "Motor.h"
+#include "Camera.h"
+#include <iostream>
+
+
+/**
+ * This is a point struct it holds
+ * A xPos and yPos.
+ */
+struct Point {
+    float xPos;
+    float yPos;
+
+    Point(const float theXpos, const float theYpos): 
+        xPos(theXpos), yPos(theYpos) {}
+};
 
 /**
  * @class CarController
- * @brief A singleton class that manages and controls the car's motors.
+ * A singleton class that manages and controls the car's motors.
  *
  * The CarController provides high-level movement commands (forward, backward,
  * turning, stopping) by coordinating four Motor instances representing each wheel.
@@ -14,7 +35,7 @@
 class CarController {
 public:
     /**
-     * @brief Get the singleton instance of CarController.
+     * Get the singleton instance of CarController.
      * 
      * If no instance exists yet, one will be created. This ensures
      * centralized control of the car's motors.
@@ -24,18 +45,18 @@ public:
     static CarController* Instance();
 
     /**
-     * @brief Move the car forward at the given speed.
+     * Move the car forward at the given speed.
      * 
      * @param theSpeed Speed value to set for all motors (positive float).
      */
-    static void moveForward(const float theSpeed);
+    void moveForward(const float theSpeed);
 
     /**
-     * @brief Move the car backward at the given speed.
+     * Move the car backward at the given speed.
      * 
      * @param theSpeed Speed value to set for all motors (positive float).
      */
-    static void moveBackward(const float theSpeed);
+    void moveBackward(const float theSpeed);
 
     /**
      * Turn the car left.
@@ -45,7 +66,7 @@ public:
      * 
      * @param theSpeed Speed value for turning (positive float).
      */
-    static void turnLeft(const float theSpeed);
+    void turnLeft(const float theSpeed);
 
     /**
      * Turn the car right.
@@ -55,19 +76,62 @@ public:
      * 
      * @param theSpeed Speed value for turning (positive float).
      */
-    static void turnRight(const float theSpeed);
+    void turnRight(const float theSpeed);
 
     /**
      * Stop all motors, bringing the car to a halt.
      */
-    static void stop();
+    void stop();
+
+    /**
+     * Get the Xpos object
+     * 
+     * @return float 
+     */
+    float getXpos();
+    /**
+     * Get the Ypos object
+     * 
+     * @return float 
+     */
+    float getYpos();
+
+    /**
+     * Set the Ypos object
+     * 
+     * @param theY 
+     */
+    void setYpos(const float theY);
+
+    /**
+     * Set the Xpost object
+     * 
+     * @param theX 
+     */
+    void setXpos(const float theX);
+
+    /**
+     * Updates the robot
+     * based on speeds of motors.
+     * 
+     */
+    void update();
+
+    Direction getDirection();
+
+    void printDriection();
+
+    void reset();
+
+    Camera& getCamera() { return myCamera; }
+
 
     /**
      * Destructor for CarController.
      *
      * Defaulted since no special cleanup is required.
      */
-    ~CarController() = default;
+    ~CarController();
 
 private:
     /**
@@ -75,7 +139,7 @@ private:
      *
      * Prevents direct instantiation of CarController outside of Instance().
      */
-    CarController() = default;
+    CarController();
 
     // Singleton instance pointer.
     static CarController* myInstance;
@@ -91,6 +155,15 @@ private:
 
     // Motor controlling the front-right wheel.
     static Motor myMotorFrontRight;
+
+    // Position of the car.
+    static Point myPos;
+
+    //Easy Check to see if the car is turning
+    static bool myTurning;
+
+    //give car a camera
+    Camera myCamera; 
 };
 
 #endif

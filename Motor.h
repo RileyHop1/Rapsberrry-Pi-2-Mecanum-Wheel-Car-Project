@@ -1,3 +1,9 @@
+/*
+Author: Erik Babonis and Rylee Hopper
+Project 2
+Implements the low-level motor abstraction used by the car controller.
+*/
+
 #ifndef MOTOR_MECH_CAR
 #define MOTOR_MECH_CAR
 
@@ -8,11 +14,12 @@
  * This enum is used to indicate the orientation of the motor's movement.
  */
 enum class Direction {
-    NORTH, 
-    SOUTH, 
-    EAST,  
-    WEST   
+    NORTH = 0,
+    EAST  = 1,
+    SOUTH = 2,
+    WEST  = 3
 };
+
 
 /**
  * Motor
@@ -30,7 +37,8 @@ public:
      * 
      * @param theId Unique identifier for this motor.
      */
-    Motor(const int theId);
+    Motor(const int theId
+        , const Direction theDir, const int theSpeed);
 
     /**
      * Destructor for Motor.
@@ -78,6 +86,23 @@ public:
      * @param theSpeed Desired speed as a float.
      */
     void setSpeed(const float theSpeed);
+
+    
+
+
+    /**
+     * Sets the currnet direction right 
+     * one.
+     */
+    void turnRight();
+
+    /**
+     * Sets the currnet direction left 
+     * one.
+     */
+    void turnLeft();
+
+    void printDriection();
 
 private:
     // Current speed of the motor

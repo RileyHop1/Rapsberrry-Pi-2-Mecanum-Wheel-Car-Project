@@ -14,3 +14,11 @@ g++ -std=c++14 *.cpp -o CarSimulator
 ## Description
 
 This project implements a complete C++ software driver and simulator for a Raspberry Pi 2 Mecanum‑wheel car. The goal is to abstract the car’s hardware (motors, power stage, and camera) into clean, reusable C++ classes, and then provide a text‑based simulator so the car logic can be tested without physical hardware.
+
+| File | Layer | Description |
+| :--- | :--- | :--- |
+| **`Motor.h` / `Motor.cpp`** | Driver | Defines the **Motor class**, abstracting a single DC motor. It handles **speed**, **direction**, and **stop** commands (the lowest layer of hardware interaction). |
+| **`Camera.h` / `Camera.cpp`** | Driver | Defines the **Camera class**, simulating basic camera functionality like capturing a frame or starting/stopping streaming. |
+| **`Car.h` / `Car.cpp`** | Controller | Defines the **Car class**. It uses four `Motor` objects (composition) and one `Camera` object to implement high-level movement commands (e.g., `moveForward`, `turnLeft`) based on **Mecanum-wheel logic**.  |
+| **`Simulator.h` / `Simulator.cpp`** | Simulator | Defines the **Simulator class**. It tracks the car's virtual state: $\text{x, y}$ coordinates and $\text{orientation}$ on a 2D grid. It updates the position based on the commands issued by the `Car`. |
+| **`main.cpp`** | UI/Entry Point | Contains the main program loop and a **text-based menu interface**. It handles user input, validates commands, and drives the interaction between the `Car` and the `Simulator`. |
