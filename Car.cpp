@@ -1,4 +1,6 @@
 #include "Car.h"
+#include "Motor.h"
+#include <iostream>
 
 CarController* CarController::myInstance = nullptr;
 
@@ -11,11 +13,7 @@ Point CarController::myPos = Point(0, 0);
 
 bool CarController::myTurning = false;
 
-
 CarController::CarController() {
-
-
-    
 }
 
 CarController* CarController::Instance() {
@@ -23,7 +21,6 @@ CarController* CarController::Instance() {
     if (myInstance == nullptr) {
         myInstance = new CarController;
     }
-
     return myInstance;
 }
 
@@ -31,16 +28,13 @@ CarController::~CarController() {
 }
 
 void CarController::moveForward(const float theSpeed) {
-
     myMotorBackLeft.setSpeed(theSpeed);
     myMotorBackRight.setSpeed(theSpeed);
     myMotorFrontLeft.setSpeed(theSpeed);
     myMotorFrontRight.setSpeed(theSpeed);
-
 }
 
 void CarController::moveBackward(const float theSpeed) {
-
     myMotorBackLeft.setSpeed(-theSpeed);
     myMotorBackRight.setSpeed(-theSpeed);
     myMotorFrontLeft.setSpeed(-theSpeed);
@@ -57,14 +51,11 @@ void CarController::turnLeft(const float theSpeed) {
 }
 
 void CarController::turnRight(const float theSpeed) {
-
-
     myMotorBackLeft.setSpeed(theSpeed);
     myMotorBackRight.stop();
     myMotorFrontLeft.setSpeed(theSpeed);
     myMotorFrontRight.stop();
     myTurning = true;
-
 }
 
 void CarController::stop() {
@@ -73,8 +64,6 @@ void CarController::stop() {
     myMotorFrontLeft.stop();
     myMotorFrontRight.stop();
 }
-
-
 
 float CarController::getXpos() {
     return myPos.xPos;
@@ -87,17 +76,15 @@ float CarController::getYpos() {
 void CarController::setXpos(const float theX) {
     myPos.xPos = theX;
 }
- 
+
 void CarController::setYpos(const float theY) {
     myPos.yPos = theY;
 }
-
 
 void CarController::update() {
     if (myTurning) {
 
         if (myMotorBackLeft.getSpeed() != 0) {
-
             myMotorBackLeft.turnRight();
             myMotorBackRight.turnRight();
             myMotorFrontLeft.turnRight();
@@ -107,43 +94,38 @@ void CarController::update() {
             myMotorBackRight.turnLeft();
             myMotorFrontLeft.turnLeft();
             myMotorFrontRight.turnLeft();
-   
         }
-        myTurning = false;
-    } else {
 
-        //This will apply 
+        myTurning = false;
+    } 
+    else {
+
         if (myMotorBackLeft.getDirection() == Direction::NORTH 
             || myMotorBackLeft.getDirection() == Direction::SOUTH) {
 
-                switch(myMotorBackLeft.getDirection()) {
-                    case Direction::NORTH:
-                        myPos.yPos += myMotorBackLeft.getSpeed();
-                        break;
-                    case Direction::SOUTH:
-                        myPos.yPos -= myMotorBackLeft.getSpeed();
-                        break;
-                }
+            switch(myMotorBackLeft.getDirection()) {
+                case Direction::NORTH:
+                    myPos.yPos += myMotorBackLeft.getSpeed();
+                    break;
+                case Direction::SOUTH:
+                    myPos.yPos -= myMotorBackLeft.getSpeed();
+                    break;
+            }
 
         } else {
-                switch(myMotorBackLeft.getDirection()) {
-                    case Direction::WEST:
-                        myPos.xPos -= myMotorBackLeft.getSpeed();
-                        break;
-                    case Direction::EAST:
-                        myPos.xPos += myMotorBackLeft.getSpeed();
-                        break;
-                }
+            switch(myMotorBackLeft.getDirection()) {
+                case Direction::WEST:
+                    myPos.xPos -= myMotorBackLeft.getSpeed();
+                    break;
+                case Direction::EAST:
+                    myPos.xPos += myMotorBackLeft.getSpeed();
+                    break;
+            }
         }
     }
 
-
-
-
     stop();
-
 }
-
 
 Direction CarController::getDirection() {
     return myMotorBackLeft.getDirection();
@@ -166,7 +148,6 @@ void CarController::printDriection() {
     }
 }
 
-
 void CarController::reset() {
     myMotorBackLeft.stop();
     myMotorBackRight.stop();
@@ -183,4 +164,3 @@ void CarController::reset() {
 
     myTurning = false;
 }
-

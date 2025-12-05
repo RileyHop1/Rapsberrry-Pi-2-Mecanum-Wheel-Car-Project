@@ -5,8 +5,7 @@
 
 
 Motor::Motor(const int theId, const Direction theDir,
-    const int theSpeed) : myId(theId), myDirection(theDir)
-    , myCurrentSpeed(theSpeed) {
+    const int theSpeed) : myId(theId), myDirection(theDir), myCurrentSpeed(theSpeed) {
     
     //We don't need anything here.
 }

@@ -2,6 +2,7 @@
 #define CAR_CONTROLLER
 
 #include "Motor.h"
+#include "Camera.h"
 #include <iostream>
 
 
@@ -116,6 +117,8 @@ public:
 
     void reset();
 
+    Camera& getCamera() { return myCamera; }
+
 
     /**
      * Destructor for CarController.
@@ -152,6 +155,9 @@ private:
 
     //Easy Check to see if the car is turning
     static bool myTurning;
+
+    //give car a camera
+    Camera myCamera; 
 };
 
 #endif
