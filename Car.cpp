@@ -1,3 +1,9 @@
+/*
+Author: Erik Babonis and Rylee Hopper
+Project 2
+Defines the CarController singleton that manages motors, movement logic, and sensors.
+*/
+
 #include "Car.h"
 #include "Motor.h"
 #include <iostream>

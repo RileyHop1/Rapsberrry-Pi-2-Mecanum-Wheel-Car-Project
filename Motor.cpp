@@ -1,3 +1,9 @@
+/*
+Author: Erik Babonis and Rylee Hopper
+Project 2 
+Implements the low-level motor abstraction used by the car controller.
+*/
+
 #include "Motor.h"
 
 

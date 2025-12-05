@@ -1,3 +1,10 @@
+/*
+Author: Erik Babonis and Rylee Hopper
+Project 2 
+Simulated Pi-Camera interface used for capturing frames during car operation.
+*/
+
+
 #ifndef CAMERA_H
 #define CAMERA_H
 

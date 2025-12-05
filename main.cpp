@@ -1,3 +1,9 @@
+/*
+Author: Erik Babonis and Rylee Hopper
+Project 2 
+Runs the menu-driven Smart Car Simulator and handles all user input/output.
+*/
+
 #include <iostream>
 #include "Car.h"
 #include "Simulator.h"
@@ -19,7 +25,7 @@ int main() {
     float value;
 
     bool running = true;
-    
+
     while (running) {
     sim.drawMap();
 

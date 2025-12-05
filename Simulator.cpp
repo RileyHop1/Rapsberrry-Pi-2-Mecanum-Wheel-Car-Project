@@ -1,3 +1,9 @@
+/*
+Author: Erik Babonis and Rylee Hopper
+Project 2 
+Provides the terminal-based simulator, including map drawing and menu interactions.
+*/
+
 #include "Simulator.h"
 #include <thread>
 #include <chrono>

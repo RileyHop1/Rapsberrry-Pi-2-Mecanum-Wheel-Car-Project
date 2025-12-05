@@ -1,3 +1,9 @@
+/*
+Author: Erik Babonis and Rylee Hopper
+Project 2 
+Provides the terminal-based simulator, including map drawing and menu interactions.
+*/
+
 #ifndef SIMULATOR_H
 #define SIMULATOR_H
 
@@ -16,6 +22,7 @@ public:
     void drawMap();
 
 private:
+
     CarController* car; // pointer to singleton
 
     void interactiveMode();
