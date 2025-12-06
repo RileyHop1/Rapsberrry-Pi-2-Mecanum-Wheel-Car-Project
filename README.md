@@ -10,7 +10,7 @@ g++ -std=c++14 *.cpp -o CarSimulator
 ```Bash
 ./CarSimulator
 ```
-Authors: Erik Babonis
+Authors: Erik Babonis and Rylee Hopper
 
 ## Description
 
