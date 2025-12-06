@@ -32,3 +32,10 @@ I don't really think this project was that challenging; most of the things that 
 I didn't really learn anything new about software design or C++ from this project. I had already taken TCS 360 beforehand, and within that class, I wrote a 2D dungeon crawler in C++ using the SDL3 library, so I already have some experience working on software projects and 
 C++. All the things we did for this project in C++ kind of just fall under the scope of things I have already done.
 
+## Testing
+
+### Test 1: 
+To test movement I pressed D to rotate the car to the right twice and  w to move it forward. I entered in a speed of 10 and the cars y position changed to -10, I then entered in s with a speed of 10 to see if it would move back to the (0,0) and it did.
+
+### Test 2:
+
