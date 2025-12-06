@@ -39,8 +39,8 @@ C++. All the things we did for this project in C++ kind of just fall under the s
 Commands Entered:
 
 ```
-D  
-D  
+D (speed = 10) 
+D (speed = 10) 
 w (speed = 10)  
 s (speed = 10)
 ```
