@@ -63,3 +63,37 @@ Everything worked as expected.
     
 - After pressing s and entering speed 10, the car returned to (0,0), confirming that forward and backward movement behaved correctly.
 
+## Test Scenario 2
+
+Commands Entered:
+
+```
+w (speed = 10)
+s (speed = 10) 
+a (speed = 10) 
+w (speed = 10) 
+s (speed = 10) 
+d (speed = 10) 
+d (speed = 10) 
+w (speed = 10) 
+s (speed = 10)
+```
+
+Expected Behavior:
+
+- First, move forward and backward to verify that y-position updates correctly in the default orientation.
+    
+- Then rotate the car left using a, and test movement along the new facing direction to confirm x-position updates correctly.
+    
+- Finally, rotate right twice using d, returning the car to a right-facing orientation, then test forward/backward movement again to ensure positive x-direction movement behaves properly.
+    
+
+What I Observed:  
+
+Everything worked as expected:
+
+- Forward/backward movement correctly updated the y-position from the starting orientation.
+    
+- After pressing a, the car rotated left; pressing w then s correctly moved the x-position to –10 and then back to 0.
+    
+- After two d presses, the car rotated to face right; the subsequent w and s (speed 10) updated the x-position to +10 and then back to 0, confirming correct right-facing movement.
