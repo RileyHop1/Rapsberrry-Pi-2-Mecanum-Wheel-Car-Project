@@ -45,7 +45,7 @@ w (speed = 10)
 s (speed = 10)
 ```
 
-What I Expected:
+Expected Behavior:
 
 - Pressing D twice should rotate the car 180 degrees to the right.
     
