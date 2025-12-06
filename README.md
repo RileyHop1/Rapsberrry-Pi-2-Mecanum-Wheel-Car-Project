@@ -34,8 +34,32 @@ C++. All the things we did for this project in C++ kind of just fall under the s
 
 ## Testing
 
-### Test 1: 
-To test movement I pressed D to rotate the car to the right twice and  w to move it forward. I entered in a speed of 10 and the cars y position changed to -10, I then entered in s with a speed of 10 to see if it would move back to the (0,0) and it did.
+### Test Scenario 1
 
-### Test 2:
+Commands Entered:
+
+```
+D  
+D  
+w (speed = 10)  
+s (speed = 10)
+```
+
+What I Expected:
+
+- Pressing D twice should rotate the car 180 degrees to the right.
+    
+- Pressing w with speed 10 should move the car forward along its current facing direction, changing its y-position to –10.
+    
+- Pressing s with speed 10 should move the car backwards, returning it to the original position at (0, 0).
+    
+
+What I Observed:  
+Everything worked as expected.
+
+- The car rotated correctly after two D presses.
+    
+- After pressing w and entering speed 10, the car’s y-position changed to –10.
+    
+- After pressing s and entering speed 10, the car returned to (0,0), confirming that forward and backward movement behaved correctly.
 
