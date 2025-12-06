@@ -63,7 +63,7 @@ Everything worked as expected.
     
 - After pressing s and entering speed 10, the car returned to (0,0), confirming that forward and backward movement behaved correctly.
 
-## Test Scenario 2
+### Test Scenario 2
 
 Commands Entered:
 
