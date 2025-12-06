@@ -32,6 +32,11 @@ I don't really think this project was that challenging; most of the things that 
 I didn't really learn anything new about software design or C++ from this project. I had already taken TCS 360 beforehand, and within that class, I wrote a 2D dungeon crawler in C++ using the SDL3 library, so I already have some experience working on software projects and 
 C++. All the things we did for this project in C++ kind of just fall under the scope of things I have already done.
 
+### Erik Babonis:
+I think the most difficult part of the project was working on the header files, simply because we covered them more recently so I had to go back and check other works more consistently. The camera code was probably the easiest, while working on main and simulation was consideraly more difficult. Also had to rework car.cpp so that the simulation effects would and tracking would come from the proper channels.
+
+This project definetly gave me a better idea of how to use header files and the differences between c and c++ and why we use each. I think building a lot of the code from the ground up also gave us a unique perspective on different ways we can tackle problems. One of the most difficult things was actually staying within the specifications of the assignment, as we talked at length about how a lot of the seperated files could be combined for better efficiency and work better with encapsulation. Specifically the car.cpp should maintain its own position instead of having a seperate source file track that for it. 
+
 ## Testing
 
 ### Test Scenario 1
@@ -97,3 +102,23 @@ Everything worked as expected:
 - After pressing a, the car rotated left; pressing w then s correctly moved the x-position to –10 and then back to 0.
     
 - After two d presses, the car rotated to face right; the subsequent w and s (speed 10) updated the x-position to +10 and then back to 0, confirming correct right-facing movement.
+
+### Test Scenario 3
+Commands Entered:
+
+```
+d (speed = 3)
+w (speed = 3) 
+a (speed = 3) 
+s (speed = 3) 
+
+```
+Expected Behavior:
+- Start by turning right
+- move forward 3 units
+- turn left
+- move backward 3 units
+
+What I Observed:
+
+Worked as expected: Car ended at position (3,-3)
